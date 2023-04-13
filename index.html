@@ -1,28 +1,226 @@
-<?php
-session_start();
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-$host  = $_SERVER['HTTP_HOST'];
-$URL = "http://$host/v1";
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
-// HEADER Y BARRA DE NAVEGACION
-include_once "./views/templates/head.php";
-include_once "./views/templates/navigation.php";
+        <!--=============== REMIXICON ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-require_once "./controllers/vistaController.php";
-require_once "./controllers/vistaController.php";
-// FIN BARRA DE NAVEGACION
-// FIN HEADER
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- FONT AWESOME 6.1.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- BOOTSTRAP CSS 5.1.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <title>Gym 2023 Python</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+           <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container">
+            <!-- LOGO -->
+            <a class="navbar-brand" >
+                <!-- UTN -->
+               <img src="./views/static/img/logo-utn-navbar.png" class="text-light" alt="Logo UTN" style="max-width: 80px;"> 
+               
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- ITEMS A LA IZQUIERDA DE LA BARRA DE NAVEGACION -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
+                <li class="nav-item">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+                       
+                 
 
-// CONTENIDO DE LA PAGINA
-$vista = get_view();
-$cantidadItemsPorPagina = 15;
-if ($vista[0] != "index.php") {
-    require_once $vista[0];
-} else {
-    require_once "./views/templates/jumbotron.php";
-}
-// FIN CONTENIDO DE LA PAGINA
+                    <li class="nav-item" >
+                        <a class="nav-link" href="" id="contacto">Contacto</a>
+                    </li>
+                    
+               
+                    <!-- ITEMS COMPRAS 
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= "$URL/compras"; ?>" id="compras">Compras</a>
+                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="" id="compras2">tienda</a>
+                    </li>
+                   <!-- <li class="nav-item">
+                        <a class="nav-link" href="<?= "$URL/pagos"; ?>">Pagos</a>
+                    </li>-->
+ 
 
-// FOOTER
-include_once "./views/templates/footer.php";
-// FIN FOOTER
+                <!-- ITEMS A LA DERECHA DE LA BARRA DE NAVEGACION -->
+
+                <ul class="navbar-nav ml-auto">
+          
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" >Ver perfil</a></li>
+                                <li><a class="dropdown-item" >Cerrar sesión</a></li>
+                            </ul>
+                        </li>
+                   
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+    <!-- FIN NAVBAR -->  
+        </header>
+
+        <!--==================== MAIN ====================-->
+        <main class="main">
+
+      
+      
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <title>GYM UTN FRRo | Gimnasios de Calidad</title>
+      <h1 style="font-weight:normal;text-align: center;">EMPIEZA A SENTIRTE BIEN</h1>
+      
+      <p style="text-align: center;">Es imprescindible tener un equilibrio entre una mente y un
+      cuerpo sano para sentirse bien y en UTN FRRo GYM este es nuestro objetivo.</p>
+      <form class="form-signin">
+            <div class="text-center mb-4">
+             <!-- imagen microfono   
+             <i class="fa fa-microphone fa-10x"></i>-->
+            
+             
+            </div>
+      
+       <p class="mt-5 mb-3 text-muted text-center"></p>
+              
+          </form>
+      <div class="vc_row wpb_row vc_inner vc_row-fluid home-posts">
+          <div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner">
+              <div class="wpb_wrapper">
+      <div class="vc_grid-container-wrapper vc_clearfix vc_grid-animation-fadeIn">
+      <div class="vc_grid-container vc_clearfix wpb_content_element vc_basic_grid" data-initial-loading-animation="fadeIn" data-vc-grid-settings="{&quot;page_id&quot;:37782,&quot;style&quot;:&quot;all&quot;,&quot;action&quot;:&quot;vc_get_vc_grid_data&quot;,&quot;shortcode_id&quot;:&quot;1652964798233-5e7476da-698d-9&quot;,&quot;tag&quot;:&quot;vc_basic_grid&quot;}" data-vc-request="#" data-vc-post-id="37782" data-vc-public-nonce="76d08529a8">
+      <style data-type="vc_shortcodes-custom-css">.vc_custom_1419240516480{background-color: #f9f9f9 !important;}</style><div class="vc_grid vc_row vc_grid-gutter-30px vc_pageable-wrapper vc_hook_hover" data-vc-pageable-content="true"><div class="vc_pageable-slide-wrapper vc_clearfix" data-vc-grid-content="true"><div class="vc_grid-item vc_clearfix vc_col-sm-4 vc_grid-item-zone-c-bottom vc_visible-item fadeIn animated"><div class="vc_grid-item-mini vc_clearfix vc_is-hover">
+          <div class="vc_gitem-animated-block">
+          <div class="vc_gitem-zone vc_gitem-zone-a vc-gitem-zone-height-mode-auto vc-gitem-zone-height-mode-auto-1-1 vc_gitem-is-link lazy slick-initialized slick-slider" style="background-image: url(&quot;https://altafitgymclub.com/wp-content/uploads/2022/07/SVF06309-1024x683.jpg&quot;);" data-bg="url('https://altafitgymclub.com/wp-content/uploads/2022/07/SVF06309-1024x683.jpg')" data-was-processed="true"><div class="slick-list draggable">
+          <div class="slick-track" style="opacity: 1; width: 2520px; transform: translate3d(-360px, 0px, 0px);"><div class="vc_gitem-zone-mini slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 320px;" tabindex="-1"></div><a href="https://altafitgymclub.com/pasaporte-altafit-disfruta-de-mas-de-80-gimnasios-por-el-precio-de-uno/"  class="vc_gitem-link vc-zone-link slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 320px;" tabindex="0"></a>
+              <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E" data-src="https://altafitgymclub.com/wp-content/uploads/2022/07/SVF06309-1024x683.jpg" class="vc_gitem-zone-img lazy slick-slide slick-initialized slick-slider" alt="Pasaporte Altafit: disfruta de más de 80 gimnasios por el precio de uno" data-slick-index="1" aria-hidden="true" style="width: 320px;" tabindex="-1"><div class="vc_gitem-zone-mini slick-slide" data-slick-index="2" aria-hidden="true" style="width: 320px;" tabindex="-1">
+          </div><a href="#" title="Pasaporte Altafit: disfruta de más de 80 gimnasios por el precio de uno" class="vc_gitem-link vc-zone-link slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" style="width: 320px;" tabindex="-1"></a><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E" data-src="https://altafitgymclub.com/wp-content/uploads/2022/07/SVF06309-1024x683.jpg" class="vc_gitem-zone-img lazy slick-slide slick-cloned" alt="Pasaporte Altafit: disfruta de más de 80 gimnasios por el precio de uno" data-slick-index="4" aria-hidden="true" style="width: 320px;" tabindex="-1">
+          <div class="vc_gitem-zone-mini slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" style="width: 320px;" tabindex="-1">
+      </div></div></div></div></div><div class="vc_gitem-zone vc_gitem-zone-c vc_custom_1419240516480"><div class="vc_gitem-zone-mini"><div class="vc_gitem_row vc_row vc_gitem-row-position-top"><div class="vc_col-sm-12 vc_gitem-col vc_gitem-col-align-"><div class="vc_custom_heading vc_gitem-post-data vc_gitem-post-data-source-post_title"><h4 style="text-align: left">Pasaporte Altafit: disfruta de más de 80 gimnasios por el precio de uno</h4></div><div class="vc_custom_heading vc_gitem-post-data vc_gitem-post-data-source-post_excerpt">
+      </div><div class="vc_btn3-container vc_btn3-left">
+          <a class="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-color-juicy-pink" a="" href="#" title="Leer más">Leer más</a></div></div></div></div></div></div><div class="vc_clearfix"></div></div><div class="vc_grid-item vc_clearfix vc_col-sm-4 vc_grid-item-zone-c-bottom vc_visible-item fadeIn animated"><div class="vc_grid-item-mini vc_clearfix"><div class="vc_gitem-animated-block"><div class="vc_gitem-zone vc_gitem-zone-a vc-gitem-zone-height-mode-auto vc-gitem-zone-height-mode-auto-1-1 vc_gitem-is-link lazy slick-initialized slick-slider" style="background-image: url(&quot;https://altafitgymclub.com/wp-content/uploads/2022/07/SVF01740-1024x683.jpg&quot;);" data-bg="url('https://altafitgymclub.com/wp-content/uploads/2022/07/SVF01740-1024x683.jpg')" data-was-processed="true">
+          <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2520px; transform: translate3d(-360px, 0px, 0px);">
+          <div class="vc_gitem-zone-mini slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 320px;" tabindex="-1"></div><a href="https://altafitgymclub.com/se-fiel-a-ti-mism-consejos-para-no-tirar-la-toalla-a-la-hora-de-salir-a-correr/" title="Sé fiel a ti mism@: consejos para no tirar la toalla a la hora de salir a correr" class="vc_gitem-link vc-zone-link slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 320px;" tabindex="0"></a><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E" data-src="https://altafitgymclub.com/wp-content/uploads/2022/07/SVF01740-1024x683.jpg" class="vc_gitem-zone-img lazy slick-slide slick-initialized slick-slider" alt="G4Run" data-slick-index="1" aria-hidden="true" style="width: 320px;" tabindex="-1"><div class="vc_gitem-zone-mini slick-slide" data-slick-index="2" aria-hidden="true" style="width: 320px;" tabindex="-1">
+      </div><a href="#" title="Sé fiel a ti mism@: consejos para no tirar la toalla a la hora de salir a correr" class="vc_gitem-link vc-zone-link slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" style="width: 320px;" tabindex="-1"></a><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E" data-src="https://altafitgymclub.com/wp-content/uploads/2022/07/SVF01740-1024x683.jpg" class="vc_gitem-zone-img lazy slick-slide slick-cloned" alt="G4Run" data-slick-index="4" aria-hidden="true" style="width: 320px;" tabindex="-1"><div class="vc_gitem-zone-mini slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" style="width: 320px;" tabindex="-1"></div></div></div>
+          </div></div><div class="vc_gitem-zone vc_gitem-zone-c vc_custom_1419240516480"><div class="vc_gitem-zone-mini"><div class="vc_gitem_row vc_row vc_gitem-row-position-top"><div class="vc_col-sm-12 vc_gitem-col vc_gitem-col-align-"><div class="vc_custom_heading vc_gitem-post-data vc_gitem-post-data-source-post_title">
+              <h4 style="text-align: left">Sé fiel a ti mism@: consejos para no tirar la toalla a la hora de salir a correr</h4></div>
+              <div class="vc_custom_heading vc_gitem-post-data vc_gitem-post-data-source-post_excerpt"><div style="text-align: left">
+      </div></div><div class="vc_btn3-container vc_btn3-left">
+          <a class="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-color-juicy-pink" a="" href="#" title="Leer más">Leer más</a></div></div></div></div></div></div><div class="vc_clearfix"></div></div><div class="vc_grid-item vc_clearfix vc_col-sm-4 vc_grid-item-zone-c-bottom vc_visible-item fadeIn animated"><div class="vc_grid-item-mini vc_clearfix"><div class="vc_gitem-animated-block"><div class="vc_gitem-zone vc_gitem-zone-a vc-gitem-zone-height-mode-auto vc-gitem-zone-height-mode-auto-1-1 vc_gitem-is-link lazy slick-initialized slick-slider" style="background-image: url(&quot;https://altafitgymclub.com/wp-content/uploads/2022/07/Imágenes_News_Rivas1.png&quot;);" data-bg="url('https://altafitgymclub.com/wp-content/uploads/2022/07/Imágenes_News_Rivas1.png')" data-was-processed="true"><div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2520px; transform: translate3d(-360px, 0px, 0px);"><div class="vc_gitem-zone-mini slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 320px;" tabindex="-1"></div><a href="#"  class="vc_gitem-link vc-zone-link slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 320px;" tabindex="0"></a><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20524'%3E%3C/svg%3E" data-src="https://altafitgymclub.com/wp-content/uploads/2022/07/Imágenes_News_Rivas1.png" class="vc_gitem-zone-img lazy slick-slide slick-initialized slick-slider" alt="Altafit Rivas Futura" data-slick-index="1" aria-hidden="true" style="width: 320px;" tabindex="-1"><div class="vc_gitem-zone-mini slick-slide" data-slick-index="2" aria-hidden="true" style="width: 320px;" tabindex="-1"></div><a href="https://altafitgymclub.com/hola-altafit-rivas-futura/"  class="vc_gitem-link vc-zone-link slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" style="width: 320px;" tabindex="-1"></a><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20524'%3E%3C/svg%3E" data-src="https://altafitgymclub.com/wp-content/uploads/2022/07/Imágenes_News_Rivas1.png" class="vc_gitem-zone-img lazy slick-slide slick-cloned" alt="Altafit Rivas Futura" data-slick-index="4" aria-hidden="true" style="width: 320px;" tabindex="-1"><div class="vc_gitem-zone-mini slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" style="width: 320px;" tabindex="-1"></div></div></div></div></div><div class="vc_gitem-zone vc_gitem-zone-c vc_custom_1419240516480"><div class="vc_gitem-zone-mini"><div class="vc_gitem_row vc_row vc_gitem-row-position-top"><div class="vc_col-sm-12 vc_gitem-col vc_gitem-col-align-"><div class="vc_custom_heading vc_gitem-post-data vc_gitem-post-data-source-post_title"></div><div class="vc_custom_heading vc_gitem-post-data vc_gitem-post-data-source-post_excerpt"><div style="text-align: left"><p>¡La familia GYM UTN FRRo sigue creciendo! ¡Abrimos nuevo gimnasio en Madrid!&nbsp; Tras las inauguraciones de GYM UTN FRRo … <a href="#" class="more-link">Continuar leyendo</a></p>
+      </div></div><div class="vc_btn3-container vc_btn3-left">
+          <a class="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-color-juicy-pink" a="" href="#" title="Leer más">Leer más</a></div></div></div></div></div></div><div class="vc_clearfix"></div></div></div></div>
+      </div>
+        </main>
+
+        <!--==================== FOOTER ====================-->
+        <footer class="footer section" id="footer">
+            
+       
+      
+                <!-- Section: Links  -->
+                <section class="">
+                    <div class="container text-center text-md-start p-4">
+                        <!-- Grid row -->
+                        <div class="row mt-3">
+                            <!-- Grid column -->
+            
+                            <!-- Grid column -->
+            
+                            <!-- Grid column -->
+                           <!-- <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                                 Links 
+                                <h6 class="text-uppercase fw-bold mb-4">
+                                    Contacto
+                                </h6>-->
+                                <div class="footer1">
+                            <ul>
+                                
+                                <p>
+                                    <img src="./views/static/img/logo-utn-footer.png" class="text-light" alt="Logo UTN" width="100" height="100">
+                                
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-home me-3"></i>Rosario - Zeballos 1341&nbsp; &nbsp;
+                                    <i class="fas fa-envelope me-3"></i>info@utnfrro.com.ar&nbsp; &nbsp;
+                                    <i class="fas fa-phone me-3"></i>0341 - 4481871
+                                
+                               
+                                    <b>  &nbsp;Copyright © 2022. Todos los derechos reservados </b> 
+                                </p>
+                            </ul>
+                                    
+                                    
+            
+                                
+                                <!-- <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p> -->
+                            </div>
+                            <!-- Grid column -->
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                </section>
+                <!-- Section: Links  -->
+            
+                <!-- Copyright -->
+                <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                    <!-- REDES -->
+                    <div>
+                        <a href="https://www.facebook.com/" class="me-4 text-reset" id="facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="" class="me-4 text-reset">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.google.com/maps/dir/-32.9383936,-60.6666752/utn+rosario/@-32.9463722,-60.6750393,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x95b7ab11d0eb49c3:0x11f1d3d54f950dd0!2m2!1d-60.6437319!2d-32.9544347" class="me-4 text-reset" id="llegar">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="me-4 text-reset" id="intagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="" class="me-4 text-reset">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="" class="me-4 text-reset">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <button style="display: none;" class="btn btn-outline-success my-2 my-sm-0" id="start-record-btn" title="Start Recording">Iniciar</button>
+                        <p class="float-right"><a href="#" id="arriba">Ir Arriba</a></p>
+                    </div>
+                    <!-- FIN REDES -->
+            
+                </div>   
+        </footer>
+
+        <!--========== SCROLL UP ==========-->
+
+
+        <!--=============== SCROLLREVEAL ===============-->
+        <script src=""></script>
+
+        <!--=============== EMAIL JS ===============-->
+        
+        
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
